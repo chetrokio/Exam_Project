@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Profile Information{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h2 class="mb-4">Profile Information</h2>
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Name:</strong> {{ user.name }}</p>
+    <p><strong>Phone Number:</strong> {{ user.phone_number }}</p>
+    <p><strong>Address:</strong> {{ user.address }}</p>
+    <a href="{% url 'profile_edit' %}" class="btn btn-primary">Edit Profile</a>
+  </div>
+{% endblock %}

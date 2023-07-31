@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}View Menu Options{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h2 class="mb-4">Menu Options</h2>
+    <ul>
+      {% for menu_item in menu_items %}
+        <li>
+          <strong>Restaurant:</strong> {{ menu_item.restaurant.name }}<br>
+          <strong>Name:</strong> {{ menu_item.dish_name }}<br>
+          <strong>Description:</strong> {{ menu_item.description }}<br>
+          <strong>Price:</strong> {{ menu_item.price }}
+          {% if request.user.user_type == 'user' %}
+            <form action="{% url 'order_menu_item' menu_item.id %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-primary">Order</button>
+            </form>
+          {% endif %}
+        </li>
+      {% empty %}
+        <li>No menu options available.</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

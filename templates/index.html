@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Leftover Resell - Home{% endblock %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+{% block content %}
+  <h1>Welcome to Leftovers Resell Alpha Release</h1>
+  <p>Explore information about leftovers and their impact on the environment:</p>
+  <a href="{% url 'leftovers-info' %}" class="button">View Leftovers Information</a>
+{% endblock %}

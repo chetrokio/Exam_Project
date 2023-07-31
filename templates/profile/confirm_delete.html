@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Confirm Delete Profile{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h2 class="mb-4">Confirm Delete Profile</h2>
+    <p>Your profile has been successfully deleted.</p>
+    <a href="{% url 'home' %}" class="btn btn-primary">Go to Home</a>
+  </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Leftover Resell - Wikipedia Statistics{% endblock %}
+
+{% block content %}
+  <div class="leftover-info" style="text-align: center;">
+    <h2>Wikipedia Statistics</h2>
+    <h3>Average Waste Per Person:</h3>
+    <p class="red-text">{{ average_waste_per_person }}</p>
+    <h3>Countries With Most Waste:</h3>
+    <p class="red-text">{{ countries_with_most_waste|join:", " }}</p>
+    <h3>Food Waste Impact:</h3>
+    <p class="red-text">{{ food_waste_impact }}</p>
+    <h3>Food Waste Cost:</h3>
+    <p class="red-text">{{ food_waste_cost }}</p>
+    <h3>Food Waste Reduction:</h3>
+    <p class="red-text">{{ food_waste_reduction }}</p>
+    <h3>Food Waste Recycling:</h3>
+    <p class="red-text">{{ food_waste_recycling }}</p>
+    <h3>Food Loss in Supply Chain:</h3>
+    <p class="red-text">{{ food_loss_in_supply_chain }}</p>
+    <h3>Summary:</h3>
+    <p class="red-text">{{ summary }}</p>
+    <a href="https://en.wikipedia.org/wiki/Food_waste" target="_blank" class="button">Learn More...</a>
+  </div>
+{% endblock %}

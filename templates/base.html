@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Leftover Resell{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="logo"><a href="{% url 'home' %}">Home</a></li>
+                {% if user.is_authenticated %}
+                    <li class="center"><a href="{% url 'view_menu_options' %}">Menu</a></li>
+                    <li class="right"><a href="{% url 'user_profile' %}">Profile</a></li>
+                    <li class="right"><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li class="right"><a href="{% url 'login' %}">Login</a></li>
+                    <li class="right"><a href="{% url 'user_registration' %}">Registration</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>
