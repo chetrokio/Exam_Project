@@ -1,14 +1,8 @@
+from django.contrib.auth.base_user import AbstractBaseUser
+from django.contrib.auth.models import PermissionsMixin
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
+
 from web.manager import CustomUserManager
-
-
-class Category(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.TextField()
-
-    def __str__(self):
-        return self.name
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
@@ -40,13 +34,21 @@ class Menu(models.Model):
     dish_name = models.CharField(max_length=100)
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
+    quantity = models.PositiveIntegerField(default=1)
 
     def __str__(self):
         return self.name
 
 
 class Order(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, limit_choices_to={'user_type': 'user'})
+    user = models.ForeignKey(CustomUser,
+                             on_delete=models.CASCADE,
+                             related_name='user_orders',
+                             limit_choices_to={'user_type': 'user'})
+    restaurant = models.ForeignKey(CustomUser,
+                                   on_delete=models.CASCADE,
+                                   related_name='restaurant_orders',
+                                   limit_choices_to={'user_type': 'restaurant'})
     menu_items = models.ManyToManyField(Menu)
     order_status = models.CharField(max_length=20, choices=[('pending', 'Pending'), ('completed', 'Completed')])
     total_price = models.DecimalField(max_digits=10, decimal_places=2)

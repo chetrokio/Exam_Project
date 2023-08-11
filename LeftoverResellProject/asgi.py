@@ -1,5 +1,5 @@
 """
-ASGI config for LeftoverResellProject project.
+ASGI config for LeftoverLinxLinx project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

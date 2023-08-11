@@ -1,0 +1,24 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}Add Menu Option{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h2 class="mb-4">Add Menu Option</h2>
+
+    {% if request.user.user_type == 'restaurant' %}
+      {% if not request.user.name %}
+        <p class="text-danger">You cannot add a menu option without a valid restaurant name.</p>
+        <p>Please <a href="{% url 'missing_restaurant_name_error' %}">update your profile</a> before adding a menu option.</p>
+      {% else %}
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-primary btn-lg mt-3">Add Menu Option</button>
+        </form>
+      {% endif %}
+    {% endif %}
+
+  </div>
+{% endblock %}

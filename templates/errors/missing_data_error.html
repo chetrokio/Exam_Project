@@ -1,0 +1,12 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}Missing Data Error{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h2 class="mb-4">Error</h2>
+    <p>{{ error_message }}</p>
+   <a href="{% url 'profile_edit' %}" class="btn btn-primary">Edit Profile</a>
+  </div>
+{% endblock %}

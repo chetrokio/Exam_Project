@@ -1,0 +1,12 @@
+{% extends "base/base.html" %}
+{% block title %}My Listings{% endblock %}
+{% block content %}
+    <h2>Your Listings</h2>
+    <ul>
+        {% for listing in listings %}
+            <li>Dish: {{ listing.dish_name }} - Price: ${{ listing.price }}</li>
+        {% empty %}
+            <li>No listings available.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

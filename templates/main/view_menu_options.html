@@ -1,0 +1,43 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}View Menu Options{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/menu_styles.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h2 class="mb-4">Menu Options</h2>
+    {% if request.user.user_type == 'restaurant' %}
+        <a href="{% url 'add_menu_option'%}" class="btn btn-success add-to-menu-button">Add to Menu</a>
+    {% endif %}
+    <ul>
+      {% for menu_item in menu_items %}
+        <li class="menu-item">
+          <div class="menu-item-details">
+            <strong>Restaurant:</strong> {{ menu_item.restaurant.name }}<br>
+            <strong>Name:</strong> {{ menu_item.dish_name }}<br>
+            <strong>Description:</strong> {{ menu_item.description|truncatechars:25 }}<br>
+            <strong>Price:</strong> {{ menu_item.price }}<br>
+            <strong>Available Portion:</strong> {{ menu_item.quantity }}<br><br><br><br><br><br>
+          </div>
+          <div class="menu-item-actions">
+            {% if request.user.user_type == 'user' %}
+              <form action="{% url 'order_menu_item' menu_item.id %}" method="post">
+                {% csrf_token %}
+                <label for="quantity">Quantity:</label>
+                <input type="number" name="quantity" id="quantity" min="1" max="{{ menu_item.quantity }}">
+                <button type="submit" class="btn btn-primary">Order</button>
+              </form>
+              <a href="{% url 'restaurant_reviews' menu_item.restaurant.id %}" class="btn btn-secondary reviews-button">Reviews</a>
+            {% endif %}
+          </div>
+        </li>
+      {% empty %}
+        <li>No menu options available.</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

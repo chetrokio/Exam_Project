@@ -1,17 +1,18 @@
-{% extends "base.html" %}
+{% extends "base/base.html" %}
 {% load static %}
 
 {% block title %}User Profile{% endblock %}
 
+
 {% block content %}
   <div class="container mt-5">
     <h2 class="mb-4">User Profile</h2>
-    
+
     <div class="profile-buttons">
-      <a href="{% url 'profile_info' %}" class="btn btn-primary">Info</a>
-      <a href="{% url 'profile_edit' %}" class="btn btn-primary">Edit Profile</a>
-      <a href="{% url 'change_password' %}" class="btn btn-primary">Change Password</a>
-      <a href="{% url 'delete_profile' %}" class="btn btn-danger">Delete Profile</a>
+      <a href="{% url 'profile_info' %}" class="btn btn-primary info-button">Info</a>
+      <a href="{% url 'profile_edit' %}" class="btn btn-primary edit-button">Edit Profile</a>
+      <a href="{% url 'change_password' %}" class="btn btn-primary password-button">Change Password</a>
+      <a href="{% url 'delete_profile' %}" class="btn btn-danger delete-button">Delete Profile</a>
     </div>
     
     {% block profile_content %}

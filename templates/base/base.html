@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,12 +11,19 @@
             <ul>
                 <li class="logo"><a href="{% url 'home' %}">Home</a></li>
                 {% if user.is_authenticated %}
-                    <li class="center"><a href="{% url 'view_menu_options' %}">Menu</a></li>
+                    {% if user.user_type == 'user' %}
+                        <li class="center"><a href="{% url 'view_orders' %}">Orders</a></li>
+                    {% else %}
+                        <li class="center"><a href="{% url 'my_listings' %}">My Listings</a></li>
+                    {% endif %}
+                    <li class="right"><a href="{% url 'view_menu_options' %}">Menu</a></li>
                     <li class="right"><a href="{% url 'user_profile' %}">Profile</a></li>
                     <li class="right"><a href="{% url 'logout' %}">Logout</a></li>
                 {% else %}
                     <li class="right"><a href="{% url 'login' %}">Login</a></li>
                     <li class="right"><a href="{% url 'user_registration' %}">Registration</a></li>
+
+        </ul>
                 {% endif %}
             </ul>
         </nav>

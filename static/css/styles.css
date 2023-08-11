@@ -1,10 +1,14 @@
 @import "index.css";
 @import "navbar.css";
+@import "content.css";
+@import "register.css";
 @import "login.css";
+@import "menu_styles.css";
+@import "profile.css";
 
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #FFFFF0;
+    background-color: #F8FFEB;
 }

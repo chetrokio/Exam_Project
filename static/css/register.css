@@ -1,0 +1,60 @@
+.container {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+}
+
+#registration-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#registration-form > * {
+  margin-bottom: 10px;
+}
+
+#register-button {
+  width: 100%;
+}
+
+#registration-form label,
+#registration-form input[type="email"],
+#registration-form input[type="text"],
+#registration-form input[type="password"],
+#registration-form select {
+  text-align: left;
+  width: 96%;
+  box-sizing: border-box;
+}
+
+#registration-form select#id_user_type {
+  font-size: 16px;
+  appearance: none;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  background: white url("arrow.png") no-repeat right center;
+}
+
+#registration-form label[for="id_user_type"] {
+  font-size: 18px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#registration-form select#id_user_type {
+  margin-top: 2px;
+}
+
+#registration-form label[for="id_user_type_0"],
+#registration-form label[for="id_user_type_1"] {
+  font-size: 50px;
+}
+
+#register-button {
+    padding: 14px;
+    font-size: 24px;
+    width: 50%;
+}
