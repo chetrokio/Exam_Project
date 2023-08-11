@@ -1,0 +1,23 @@
+.profile-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.info-button,
+.edit-button,
+.password-button {
+  background-color: blue;
+  color: white;
+}
+
+.delete-button {
+  background-color: red;
+  color: white;
+}
+
+.profile-buttons a {
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}

@@ -1,0 +1,49 @@
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.menu-item-details {
+  width: 70%;
+}
+
+.menu-item-actions {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.btn-secondary.reviews-button {
+  background-color: blue;
+  color: white;
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-secondary.reviews-button:hover {
+  background-color: #004d00;
+}
+
+.btn-success.add-to-menu-button {
+  background-color: #28a745;
+  color: white;
+  font-size: 18px;
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-success.add-to-menu-button:hover {
+  background-color: #218838;
+}

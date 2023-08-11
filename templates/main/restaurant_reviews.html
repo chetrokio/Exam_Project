@@ -1,0 +1,34 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}Restaurant Reviews{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h2 class="mb-4">Reviews for {{ restaurant.name }}</h2>
+
+    {% if messages %}
+      {% for message in messages %}
+        {% if message.tags == 'success' %}
+          <div class="alert alert-success" role="alert">
+            {{ message }}
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+
+    <ul>
+      {% for review in restaurant.restaurant_reviews.all %}
+        <li>
+          <strong>User:</strong> {{ review.user.username }}<br>
+          <strong>Rating:</strong> {{ review.rating }}<br>
+          <strong>Comment:</strong> {{ review.comment }}
+        </li>
+      {% empty %}
+        <li>No reviews available for this restaurant.</li>
+      {% endfor %}
+    </ul>
+
+    <a href="{% url 'leave_review' restaurant.id %}" class="btn btn-primary">Leave a Review</a>
+  </div>
+{% endblock %}
